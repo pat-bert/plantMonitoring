@@ -16,7 +16,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build project with MPLAB X IDE
-        uses: aeraterta/mplab-xc8-action@1.0
+        uses: pat-bert/mplab-xc8-action@1.0
         with:
           project: plantMonitoring.X
+          packs: "ATmega_DFP=3.3.279"
           configuration: default
+          mplabx-version: 6.25
+          xc8-version: 3.00
