@@ -1,0 +1,25 @@
+name: Build
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build the project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build project with MPLAB X IDE
+        uses: aeraterta/mplab-xc8-action@v1.0.0
+        with:
+          project: plantMonitoring.X
+          packs: "ATmega_DFP=3.3.279"
+          configuration: default
+          mplabx-version: 6.25
+          xc8-version: 3.00
